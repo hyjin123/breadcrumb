@@ -1,59 +1,46 @@
-import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
+import BreadCrumb from "./BreadCrumb";
+import BreadCrumbBody from "./BreadCrumbBody";
 
 function App() {
-  // this is the data that needs to be passed down to the front end
-  let root = {
-    type: "dir",
-    children: {
-      home: {
-        type: "dir",
-        children: {
-          myname: {
-            type: "dir",
-            children: {
-              "filea.txt": {
-                type: "file",
-              },
-              "fileb.txt": {
-                type: "file",
-              },
-              projects: {
-                type: "dir",
-                children: {
-                  mysupersecretproject: {
-                    type: "dir",
-                    children: {
-                      mysupersecretfile: {
-                        type: "file",
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
+  // store the path in a state
+  const [path, setPath] = useState(["root", "home", "myname"]);
+  const [folderData, setFolderData] = useState(null);
+
+  // fetch the data from the backend (where root variable is located). Send the path information as params
+  useEffect(() => {
+    axios
+      .get(`/path`, {
+        params: {
+          path,
         },
-      },
-    },
-  };
+      })
+      .then((res) => {
+        setFolderData(res.data);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Heading */}
+      <div>
+        <h1>Breadcrumb</h1>
+      </div>
+
+      {/* Breadcrumb navigation */}
+      <div className="crumbs">
+        {path.map((folder) => (
+          <BreadCrumb key={folder} folder={folder} />
+        ))}
+      </div>
+
+      {/* Content of the path */}
+      <div className="body">
+        <BreadCrumbBody folderData={folderData} />
+      </div>
     </div>
   );
 }
