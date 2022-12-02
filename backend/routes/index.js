@@ -39,7 +39,6 @@ let root = {
 
 /* GET path */
 router.get("/path", function (req, res, next) {
-  // console.log("this is query", req.query.path);
   // this is the path query we receive from the front end
   const path = req.query.path;
 
@@ -61,5 +60,3 @@ router.get("/path", function (req, res, next) {
 });
 
 module.exports = router;
-
-// root[root][home][]

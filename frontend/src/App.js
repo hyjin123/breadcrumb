@@ -21,8 +21,9 @@ function App() {
         setFolderData(res.data);
       })
       .catch((err) => console.log(err.message));
-  }, []);
+  }, [path]);
 
+  console.log("this is the new path", path);
   return (
     <div className="App">
       {/* Heading */}
@@ -33,13 +34,18 @@ function App() {
       {/* Breadcrumb navigation */}
       <div className="crumbs">
         {path.map((folder) => (
-          <BreadCrumb key={folder} folder={folder} />
+          <BreadCrumb
+            key={folder}
+            folder={folder}
+            setPath={setPath}
+            path={path}
+          />
         ))}
       </div>
 
       {/* Content of the path */}
       <div className="body">
-        <BreadCrumbBody folderData={folderData} />
+        <BreadCrumbBody folderData={folderData} setPath={setPath} path={path} />
       </div>
     </div>
   );

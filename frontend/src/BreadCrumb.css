@@ -26,3 +26,14 @@
   flex-direction: column;
   margin: 35px;
 }
+
+.folder-body:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.file-body {
+  display: flex;
+  flex-direction: column;
+  margin: 35px;
+}
