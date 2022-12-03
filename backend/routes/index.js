@@ -54,8 +54,6 @@ router.get("/path", function (req, res, next) {
     }
   }
 
-  console.log(preppedData);
-
   res.json({ preppedData });
 });
 
