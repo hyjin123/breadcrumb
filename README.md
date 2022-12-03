@@ -6,7 +6,7 @@
 
 - When a user opens a file instead of a folder, it shows a pop up that shows that particular file has been opened
 
-!["video of pop up"](https://raw.githubusercontent.com/hyjin123/crypto-tracking-app/master/myapp/docs/main_page.png)
+!["video of pop up"](https://github.com/hyjin123/breadcrumb/blob/master/frontend/docs/opening.gif?raw=true)
 
 - Users can press the back button to navigate back to the previous directory
 
