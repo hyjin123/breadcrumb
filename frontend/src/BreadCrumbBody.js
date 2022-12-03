@@ -5,7 +5,7 @@ import OpenFileModal from "./OpenFileModal";
 
 function BreadCrumbBody({ folderData, setPath, path }) {
   // state for modal
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   // state to distinguish which file is opened
   const [file, setFile] = useState("");
 

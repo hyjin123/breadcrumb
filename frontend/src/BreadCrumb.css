@@ -47,3 +47,15 @@
 .folder-body-name {
   margin-top: 0.2em;
 }
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  color: blue;
+}
