@@ -23,7 +23,6 @@ function App() {
       .catch((err) => console.log(err.message));
   }, [path]);
 
-  console.log("this is the new path", path);
   return (
     <div className="App">
       {/* Heading */}
@@ -32,7 +31,7 @@ function App() {
       </div>
 
       {/* Breadcrumb navigation */}
-      <div className="crumbs">
+      <div className="crumb">
         {path.map((folder) => (
           <BreadCrumb
             key={folder}

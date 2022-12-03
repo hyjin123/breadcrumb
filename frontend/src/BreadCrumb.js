@@ -23,11 +23,15 @@ function BreadCrumb({ folder, path, setPath }) {
   return (
     <div className="crumbs">
       <div className="arrow">
-        <FaArrowRight />
+        <FaArrowRight size="1em" color="#736f6e" />
       </div>
       <div
         onClick={() => handleBreadCrumbClick(folder)}
-        className="folder-name"
+        className={`${
+          path[path.length - 1] === folder
+            ? "current-folder-name"
+            : "folder-name"
+        }`}
       >
         {folder}
       </div>

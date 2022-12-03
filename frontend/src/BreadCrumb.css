@@ -1,3 +1,13 @@
+.body {
+  margin-top: 30px;
+}
+
+.crumb {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .crumbs {
   display: flex;
   flex-direction: row;
@@ -6,6 +16,12 @@
 
 .folder-name {
   color: blue;
+  align-self: flex-start;
+}
+
+.current-folder-name {
+  color: grey;
+  align-self: flex-start;
 }
 
 .folder-name:hover {
@@ -15,10 +31,6 @@
 
 .arrow {
   margin: 0 10px;
-}
-
-.body {
-  margin-top: 30px;
 }
 
 .folder-body {
@@ -32,8 +44,6 @@
   color: blue;
 }
 
-.file-body {
-  display: flex;
-  flex-direction: column;
-  margin: 35px;
+.folder-body-name {
+  margin-top: 0.2em;
 }
