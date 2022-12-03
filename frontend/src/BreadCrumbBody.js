@@ -12,46 +12,46 @@ function BreadCrumbBody({ folderData, setPath, path }) {
   const folders = folderData?.preppedData?.children;
 
   // function for when a user clicks on a folder to navigate
-  const handleFolderClick = (key) => {
+  const handleFolderClick = (folder) => {
     // add the clicked folder to the breadcrumb path
-    setPath([...path, key]);
+    setPath([...path, folder]);
   };
 
   // function for when a user clicks on a file to open, it opens a modal
-  const handleFileClick = (key) => {
+  const handleFileClick = (folder) => {
     // open the modal
-    setOpen(true);
+    setOpen(folder);
     // set the file name
-    setFile(key);
+    setFile(folder);
   };
 
   let dataArray = [];
 
   // map through the folder object and display it in the component
   if (folders) {
-    dataArray = Object.keys(folders).map((key) => {
+    dataArray = Object.keys(folders).map((folder) => {
       // if the folder is directory, map the following
-      if (folders[key].type === "dir") {
+      if (folders[folder].type === "dir") {
         return (
           <div
-            onClick={() => handleFolderClick(key)}
-            key={key}
+            onClick={() => handleFolderClick(folder)}
+            key={folder}
             className="folder-body"
           >
             <FaFolder size="4em" />
-            <div className="folder-body-name">{key}</div>
+            <div className="folder-body-name">{folder}</div>
           </div>
         );
       } else {
         // if the folder is a file, map the following
         return (
           <div
-            onClick={() => handleFileClick(key)}
-            key={key}
+            onClick={() => handleFileClick(folder)}
+            key={folder}
             className="folder-body"
           >
             <FaFile size="4em" />
-            <div className="folder-body-name">{key}</div>
+            <div className="folder-body-name">{folder}</div>
           </div>
         );
       }

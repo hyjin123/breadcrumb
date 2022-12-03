@@ -7,7 +7,7 @@ import BreadCrumbBody from "./BreadCrumbBody";
 
 function App() {
   // store the path in a state
-  const [path, setPath] = useState(["root", "home", "myname"]);
+  const [path, setPath] = useState(["root"]);
   const [folderData, setFolderData] = useState(null);
 
   // fetch the data from the backend (where root variable is located). Send the path information as params
@@ -51,14 +51,16 @@ function App() {
           <div>Back</div>
         </div>
 
-        {path.map((folder) => (
-          <BreadCrumb
-            key={folder}
-            folder={folder}
-            setPath={setPath}
-            path={path}
-          />
-        ))}
+        <div className="crumb-container">
+          {path.map((folder) => (
+            <BreadCrumb
+              key={folder}
+              folder={folder}
+              setPath={setPath}
+              path={path}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Content of the path */}

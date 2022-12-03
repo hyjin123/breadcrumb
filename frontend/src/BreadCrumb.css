@@ -14,6 +14,10 @@
   justify-content: center;
 }
 
+.crumb-container {
+  display: flex;
+}
+
 .folder-name {
   color: blue;
   align-self: flex-start;
