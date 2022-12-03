@@ -19,7 +19,7 @@ function App() {
         },
       })
       .then((res) => {
-        setFolderData(res.data);
+        setFolderData(res.data.copiedData);
       })
       .catch((err) => console.log(err.message));
   }, [path]);

@@ -9,7 +9,7 @@ function BreadCrumbBody({ folderData, setPath, path }) {
   // state to distinguish which file is opened
   const [file, setFile] = useState("");
 
-  const folders = folderData?.preppedData?.children;
+  const folders = folderData?.children;
 
   // function for when a user clicks on a folder to navigate
   const handleFolderClick = (folder) => {
